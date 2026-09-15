@@ -33,6 +33,14 @@ jobs:
         run: |
           echo "$SIGNING_PROPERTIES" | base64 -d > signing.properties
           echo "$SIGN_KEY" | base64 -d > key.jks
+          echo "signing.properties:"
+          wc -c signing.properties
+
+          echo "key.jks:"
+          wc -c key.jks
+
+          echo "Properties:"
+          sed 's/=.*$/=***REDACTED***/' signing.properties
 
       - name: Build release APK
         env:
