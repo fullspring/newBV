@@ -36,7 +36,7 @@ jobs:
 
       - name: Build release APK
         env:
-          NEWBV_VERSION_BASE: ${{ github.ref_name }}
+          NEWBV_VERSION_BASE: 1.0.0
         run: |
           export NEWBV_VERSION_BASE="${NEWBV_VERSION_BASE#v}"
           ./gradlew assembleRelease
@@ -75,7 +75,7 @@ jobs:
           files: |
             app/build/outputs/apk/release/newBV_${{ env.versionCode }}_${{ env.versionName }}_release.apk
             mapping_${{ env.versionCode }}.zip
-          tag_name: ${{ github.ref_name }}
+          tag_name: 1.0.0
           name: newBV ${{ env.versionName }}
           generate_release_notes: true
           draft: false
